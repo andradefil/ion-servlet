@@ -1,4 +1,4 @@
-# API Upgrade Experiments
+# Servlet upgrade experiments
 
 Reproducing classpath conflicts that ion users may hit when Datomic upgrades its internal Jetty from 9 to 12.
 
