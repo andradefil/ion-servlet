@@ -1,0 +1,54 @@
+{:aliases
+ {
+  :old-ring-old-jetty-servlet
+  {:extra-deps {ring/ring {:mvn/version "1.10.0"}}
+   :override-deps {org.eclipse.jetty/jetty-server {:mvn/version "9.4.53.v20231009"}
+                   javax.servlet/javax.servlet-api {:mvn/version "3.1.0"}}}
+
+  ;; error — ClassNotFoundException: org.eclipse.jetty.server.Request$Handler
+  :new-ring-old-jetty-servlet
+  {:extra-deps {ring/ring {:mvn/version "1.15.4"}}
+   :override-deps {org.eclipse.jetty/jetty-server {:mvn/version "9.4.53.v20231009"}}}
+
+  :new-ring-old-adapter-old-jetty
+  {:extra-deps {ring/ring {:mvn/version "1.15.4"}}
+   :override-deps {ring/ring-jetty-adapter {:mvn/version "1.10.0"}
+                   org.eclipse.jetty/jetty-server {:mvn/version "9.4.53.v20231009"}}}
+
+  :new-ring-new-jetty-servlet
+  {:extra-deps {ring/ring {:mvn/version "1.15.4"}
+                org.eclipse.jetty.ee8/jetty-ee8-servlet {:mvn/version "12.1.9"}}
+   :override-deps {org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}
+                   javax.servlet/javax.servlet-api {:mvn/version "4.0.0"}}}
+
+  :new-ring-new-jetty-ee10
+  {:extra-deps {ring/ring {:mvn/version "1.15.4"}
+                org.eclipse.jetty.ee10/jetty-ee10-servlet {:mvn/version "12.1.9"}}
+   :override-deps {org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}
+                   jakarta.servlet/jakarta.servlet-api {:mvn/version "6.1.0"}}}
+
+  ;; 500 — NoClassDefFoundError: jakarta.servlet.ServletConnection
+  :jakarta-6-provided-5
+  {:extra-deps {org.eclipse.jetty.ee10/jetty-ee10-servlet {:mvn/version "12.1.9"}
+                org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}}
+   :override-deps {jakarta.servlet/jakarta.servlet-api {:mvn/version "5.0.0"}}}
+
+  :jakarta-6-provided-6
+  {:extra-deps {jakarta.servlet/jakarta.servlet-api {:mvn/version "6.1.0"}
+                org.eclipse.jetty.ee10/jetty-ee10-servlet {:mvn/version "12.1.9"}
+                org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}}}
+
+  :jakarta-6-with-javax-4
+  {:extra-deps {jakarta.servlet/jakarta.servlet-api {:mvn/version "6.1.0"}
+                javax.servlet/javax.servlet-api {:mvn/version "4.0.0"}
+                org.eclipse.jetty.ee10/jetty-ee10-servlet {:mvn/version "12.1.9"}
+                org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}}}
+
+  :ring-15-jakarta-6-with-javax-4
+  {:extra-deps {ring/ring {:mvn/version "1.15.4"}
+                jakarta.servlet/jakarta.servlet-api {:mvn/version "6.1.0"}
+                javax.servlet/javax.servlet-api {:mvn/version "4.0.0"}
+                org.eclipse.jetty.ee8/jetty-ee8-servlet {:mvn/version "12.1.9"}
+                org.eclipse.jetty.ee10/jetty-ee10-servlet {:mvn/version "12.1.9"}}
+   :override-deps {org.eclipse.jetty/jetty-server {:mvn/version "12.1.9"}}}
+  }}
